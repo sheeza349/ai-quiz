@@ -46,7 +46,7 @@ async function generateQuiz() {
   setupError.hidden = true;
 
   if (!topic) {
-    setupError.textContent = "Pehle koi topic likhein.";
+    setupError.textContent = "Please enter a topic first.";
     setupError.hidden = false;
     return;
   }
@@ -77,7 +77,7 @@ async function generateQuiz() {
     showOnly(quizCard);
     renderQuestion(0);
   } catch (err) {
-    setupError.textContent = "Quiz nahi ban saka: " + err.message;
+    setupError.textContent = "Couldn't generate the quiz: " + err.message;
     setupError.hidden = false;
   } finally {
     loading.hidden = true;
@@ -135,15 +135,15 @@ function showResult() {
     item.innerHTML = `
       <div class="q-text">${i + 1}. ${escapeHtml(q.question)}</div>
       <div class="${isCorrect ? "correct-answer" : "your-answer"}">
-        Aapka jawab: ${userAnswers[i] !== null ? escapeHtml(q.options[userAnswers[i]]) : "Skip kiya"}
+        Your answer: ${userAnswers[i] !== null ? escapeHtml(q.options[userAnswers[i]]) : "Skipped"}
       </div>
-      ${!isCorrect ? `<div class="correct-answer">Sahi jawab: ${escapeHtml(q.options[q.correct_index])}</div>` : ""}
+      ${!isCorrect ? `<div class="correct-answer">Correct answer: ${escapeHtml(q.options[q.correct_index])}</div>` : ""}
       ${q.explanation ? `<div class="explanation">${escapeHtml(q.explanation)}</div>` : ""}
     `;
     reviewContainer.appendChild(item);
   });
 
-  scoreText.textContent = `${score} / ${quizData.questions.length} sahi jawab 🎉`;
+  scoreText.textContent = `${score} / ${quizData.questions.length} correct 🎉`;
   showOnly(resultCard);
 }
 
