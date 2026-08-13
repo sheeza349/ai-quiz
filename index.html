@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ur">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,18 +31,18 @@
   <main class="wrap">
     <header class="hero">
       <h1>Quizly<span class="dot">.</span></h1>
-      <p class="tagline">Koi bhi topic likho, AI turant quiz bana dega ✨</p>
+      <p class="tagline">Type any topic, and AI will build your quiz instantly ✨</p>
     </header>
 
     <section id="setup-card" class="card">
       <label class="field">
-        <span>Quiz ka topic</span>
-        <input id="topic" type="text" placeholder="e.g. Pakistan ki history, Python basics, Cricket..." />
+        <span>Quiz topic</span>
+        <input id="topic" type="text" placeholder="e.g. History of Pakistan, Python basics, Cricket..." />
       </label>
 
       <div class="field-row">
         <label class="field">
-          <span>Sawalon ki tadaad</span>
+          <span>Number of questions</span>
           <select id="num-questions">
             <option value="3">3</option>
             <option value="5" selected>5</option>
@@ -61,7 +61,7 @@
         </label>
       </div>
 
-      <button id="generate-btn" class="btn-primary">Quiz Banao</button>
+      <button id="generate-btn" class="btn-primary">Generate Quiz</button>
       <p id="setup-error" class="error-text" hidden></p>
     </section>
 
@@ -72,22 +72,22 @@
       </div>
       <div id="question-container"></div>
       <div class="quiz-nav">
-        <button id="prev-btn" class="btn-secondary" hidden>Pichla</button>
-        <button id="next-btn" class="btn-primary" hidden>Agla</button>
-        <button id="submit-btn" class="btn-primary" hidden>Result Dikhao</button>
+        <button id="prev-btn" class="btn-secondary" hidden>Previous</button>
+        <button id="next-btn" class="btn-primary" hidden>Next</button>
+        <button id="submit-btn" class="btn-primary" hidden>Show Result</button>
       </div>
     </section>
 
     <section id="result-card" class="card" hidden>
-      <h2>Aapka Result</h2>
+      <h2>Your Result</h2>
       <p id="score-text" class="score-text"></p>
       <div id="review-container"></div>
-      <button id="restart-btn" class="btn-primary">Naya Quiz Banao</button>
+      <button id="restart-btn" class="btn-primary">Make a New Quiz</button>
     </section>
 
     <div id="loading" class="loading" hidden>
       <div class="spinner"></div>
-      <p>Quiz taiyar ho raha hai...</p>
+      <p>Building your quiz...</p>
     </div>
   </main>
 
