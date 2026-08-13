@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quizly — AI Quiz Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Big decorative yellow flower, purely visual -->
+  <svg class="bg-flower" viewBox="0 0 600 600" aria-hidden="true">
+    <g transform="translate(300,300)">
+      <g id="petals">
+        <ellipse class="petal" cx="0" cy="-160" rx="70" ry="150"/>
+        <ellipse class="petal" cx="113" cy="-113" rx="70" ry="150" transform="rotate(45)"/>
+        <ellipse class="petal" cx="160" cy="0" rx="70" ry="150" transform="rotate(90)"/>
+        <ellipse class="petal" cx="113" cy="113" rx="70" ry="150" transform="rotate(135)"/>
+        <ellipse class="petal" cx="0" cy="160" rx="70" ry="150" transform="rotate(180)"/>
+        <ellipse class="petal" cx="-113" cy="113" rx="70" ry="150" transform="rotate(225)"/>
+        <ellipse class="petal" cx="-160" cy="0" rx="70" ry="150" transform="rotate(270)"/>
+        <ellipse class="petal" cx="-113" cy="-113" rx="70" ry="150" transform="rotate(315)"/>
+      </g>
+      <circle class="flower-center" r="70"/>
+    </g>
+  </svg>
+
+  <main class="wrap">
+    <header class="hero">
+      <h1>Quizly<span class="dot">.</span></h1>
+      <p class="tagline">Type any topic, and AI will build your quiz instantly ✨</p>
+    </header>
+
+    <section id="setup-card" class="card">
+      <label class="field">
+        <span>Quiz topic</span>
+        <input id="topic" type="text" placeholder="e.g. History of Pakistan, Python basics, Cricket..." />
+      </label>
+
+      <div class="field-row">
+        <label class="field">
+          <span>Number of questions</span>
+          <select id="num-questions">
+            <option value="3">3</option>
+            <option value="5" selected>5</option>
+            <option value="8">8</option>
+            <option value="10">10</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Difficulty</span>
+          <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+      </div>
+
+      <button id="generate-btn" class="btn-primary">Generate Quiz</button>
+      <p id="setup-error" class="error-text" hidden></p>
+    </section>
+
+    <section id="quiz-card" class="card" hidden>
+      <div id="quiz-header">
+        <h2 id="quiz-topic-title"></h2>
+        <span id="progress"></span>
+      </div>
+      <div id="question-container"></div>
+      <div class="quiz-nav">
+        <button id="prev-btn" class="btn-secondary" hidden>Previous</button>
+        <button id="next-btn" class="btn-primary" hidden>Next</button>
+        <button id="submit-btn" class="btn-primary" hidden>Show Result</button>
+      </div>
+    </section>
+
+    <section id="result-card" class="card" hidden>
+      <h2>Your Result</h2>
+      <p id="score-text" class="score-text"></p>
+      <div id="review-container"></div>
+      <button id="restart-btn" class="btn-primary">Make a New Quiz</button>
+    </section>
+
+    <div id="loading" class="loading" hidden>
+      <div class="spinner"></div>
+      <p>Building your quiz...</p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
